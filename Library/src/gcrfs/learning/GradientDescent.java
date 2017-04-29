@@ -14,6 +14,13 @@ public class GradientDescent implements LearningAlgorithm {
 	boolean showProgress;
 	JProgressBar progress;
 
+	/**
+	 * Class constructor specifying: parameters for learning algorithm (object
+	 * of Parameters class), calculation rules (object of class that implements
+	 * Calculations interface), array of y (the output variable) values, and
+	 * whether progress will be shown in the console (showProgress=true) or in
+	 * the specific JProgressBar (pass JProgressBar object or null).
+	 */
 	public GradientDescent(Parameters parameters, Calculations calcs, double[] y, boolean showProgress,
 			JProgressBar progress) {
 		super();
