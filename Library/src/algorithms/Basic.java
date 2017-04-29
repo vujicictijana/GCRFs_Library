@@ -5,7 +5,7 @@ import calculations.Calculations;
 import data.datasets.Dataset;
 import learning.LearningAlgorithm;
 
-public class Basic {
+public class Basic implements Algorithm{
 	private double alpha;
 	private double beta;
 	private double[] expectedY;

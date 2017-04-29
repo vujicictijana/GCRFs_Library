@@ -2,7 +2,6 @@ package calculations;
 
 public class CalculationsDirGCRF extends CalculationsGCRF implements Calculations {
 
-	private int n;
 	private double[][] s;
 	private double[] r;
 
@@ -12,7 +11,6 @@ public class CalculationsDirGCRF extends CalculationsGCRF implements Calculation
 	 */
 	public CalculationsDirGCRF(double[][] s, double[] r) {
 		super(s, r);
-		this.n = s.length;
 	}
 
 	/**
