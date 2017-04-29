@@ -2,6 +2,7 @@ package algorithms;
 
 import calculations.BasicCalcs;
 import calculations.Calculations;
+import learning.LearningAlgorithm;
 
 public class Basic {
 	//change calcs
@@ -10,10 +11,11 @@ public class Basic {
 	private double[] expectedY;
 	private Calculations calcs;
 
-	public Basic(double alpha, double beta, double[][] s, double[] r, double[] expectedY, Calculations calcs) {
+	public Basic(LearningAlgorithm l, double[][] s, double[] r, double[] expectedY, Calculations calcs) {
 		super();
-		this.alpha = alpha;
-		this.beta = beta;
+		double[] array = l.learn();
+		this.alpha = array[0];
+		this.beta =  array[1];
 		this.expectedY = expectedY;
 		this.calcs = calcs;
 	}

@@ -7,9 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
 public class ArrayReader {
-
 
 	public static double[] readArray(String path, int noOfNodes) {
 		double[] r = new double[noOfNodes];
@@ -24,6 +22,16 @@ public class ArrayReader {
 		return r;
 	}
 
+	public static double[] readArray(String path) {
+
+		String[] text = ArrayReader.read(path);
+		double[] r = new double[text.length];
+
+		for (int k = 0; k < text.length; k++) {
+			r[k] = Double.parseDouble(text[k]);
+		}
+		return r;
+	}
 
 	private static String[] read(String fileName) {
 		File f = new File(fileName);
@@ -44,5 +52,4 @@ public class ArrayReader {
 		}
 	}
 
-	
 }

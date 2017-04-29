@@ -7,27 +7,25 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-
-
 public class GraphReader {
 
-	public static double[][] readMatrix(String path, int noOfRows, int noOfCols) {
-		double[][] matrix = new double[noOfRows][noOfCols];
-
-		String[] text = GraphReader.read(path);
-
-		if (text.length != noOfRows) {
-			return null;
-		}
-
-		String[] line = null;
-		for (int i = 0; i < noOfRows; i++) {
-			line = text[i].split(",");
-			for (int j = 0; j < noOfCols; j++) {
-				matrix[i][j] = Double.parseDouble(line[j]);
+	public static double[][] readGraph(String path, int noOfNodes) {
+		double[][] matrix = new double[noOfNodes][noOfNodes];
+		String[] text = read(path);
+		String[] line;
+		int i = 0;
+		int j = 0;
+		double weigth = 0;
+		for (int k = 0; k < text.length; k++) {
+			line = text[k].split(",");
+			i = Integer.parseInt(line[0]);
+			j = Integer.parseInt(line[1]);
+			if (i <= 0 || i > noOfNodes || j <= 0 || j > noOfNodes) {
+				return null;
 			}
+			weigth = Double.parseDouble(line[2]);
+			matrix[i - 1][j - 1] = weigth;
 		}
-		// GraphGenerator.showMatrix(matrix);
 		return matrix;
 	}
 
