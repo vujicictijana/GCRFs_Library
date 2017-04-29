@@ -8,7 +8,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class GraphReader {
-
+	/**
+	 * Reads graph (adjacency matrix) from the given file.
+	 *
+	 * @param path
+	 *            path to file
+	 * @param noOfNodes
+	 *            number of elements in the graph
+	 * @return the matrix as two dimensional array of double values
+	 */
 	public static double[][] readGraph(String path, int noOfNodes) {
 		double[][] matrix = new double[noOfNodes][noOfNodes];
 		String[] text = read(path);
@@ -48,5 +56,4 @@ public class GraphReader {
 		}
 	}
 
-	
 }

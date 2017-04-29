@@ -8,12 +8,20 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class ArrayReader {
-
-	public static double[] readArray(String path, int noOfNodes) {
-		double[] r = new double[noOfNodes];
+	/**
+	 * Reads array from the given file.
+	 *
+	 * @param path
+	 *            path to file
+	 * @param noOfElements
+	 *            number of elements in the array
+	 * @return the array of double values
+	 */
+	public static double[] readArray(String path, int noOfElements) {
+		double[] r = new double[noOfElements];
 
 		String[] text = ArrayReader.read(path);
-		if (text.length != noOfNodes) {
+		if (text.length != noOfElements) {
 			return null;
 		}
 		for (int k = 0; k < text.length; k++) {
@@ -22,6 +30,13 @@ public class ArrayReader {
 		return r;
 	}
 
+	/**
+	 * Reads array from the given file.
+	 *
+	 * @param path
+	 *            path to file
+	 * @return the array of double values
+	 */
 	public static double[] readArray(String path) {
 
 		String[] text = ArrayReader.read(path);

@@ -6,7 +6,14 @@ import java.util.List;
 import java.util.Random;
 
 public class GraphGenerator {
-
+	/**
+	 * Returns adjacency matrix of random generated fully connected directed
+	 * graph.
+	 *
+	 * @param noOfNodes
+	 *            number of nodes in the graph
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
 	public static double[][] generateDirectedGraph(int noOfNodes) {
 		double[][] graph = new double[noOfNodes][noOfNodes];
 		for (int i = 0; i < graph.length; i++) {
@@ -19,8 +26,17 @@ public class GraphGenerator {
 		return graph;
 	}
 
-	public static double[][] generateDirectedGraphWithEdgeProbability(
-			int noOfNodes, double probability) {
+	/**
+	 * Returns adjacency matrix of random generated directed graph with the
+	 * specified edge probability.
+	 *
+	 * @param noOfNodes
+	 *            number of nodes in the graph
+	 * @param probability
+	 *            edge probability (from 0 to 1)
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
+	public static double[][] generateDirectedGraphWithEdgeProbability(int noOfNodes, double probability) {
 		double p = 1 - probability;
 		double[][] graph = new double[noOfNodes][noOfNodes];
 		double tempP = 0;
@@ -37,16 +53,25 @@ public class GraphGenerator {
 		return graph;
 	}
 
-	public static double[][] converteGraphToUndirected(double[][] graph) {
-		double[][] graphUndirected = new double[graph.length][graph.length];
+	/**
+	 * Converts directed graph to undirected - converts asymmetric adjacency
+	 * matrix to symmetric.
+	 *
+	 * @param matrix
+	 *            adjacency matrix of directed graph
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
+
+	public static double[][] converteGraphToUndirected(double[][] matrix) {
+		double[][] graphUndirected = new double[matrix.length][matrix.length];
 		double first = 0;
 		double second = 0;
-		for (int i = 0; i < graph.length; i++) {
-			for (int j = 0; j < graph.length; j++) {
+		for (int i = 0; i < matrix.length; i++) {
+			for (int j = 0; j < matrix.length; j++) {
 				if (graphUndirected[i][j] == 0) {
 					if (i != j) {
-						first = graph[i][j];
-						second = graph[j][i];
+						first = matrix[i][j];
+						second = matrix[j][i];
 						graphUndirected[i][j] = (first + second) / 2;
 						graphUndirected[j][i] = (first + second) / 2;
 					}
@@ -56,6 +81,15 @@ public class GraphGenerator {
 		return graphUndirected;
 	}
 
+	/**
+	 * Returns adjacency matrix of random generated directed acyclic graph
+	 * (there is no path that starts from a node A and follows a
+	 * consistently-directed sequence of edges that loops back to node A).
+	 *
+	 * @param noOfNodes
+	 *            number of nodes in the graph
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
 	public static double[][] generateDirectedAcyclicGraph(int noOfNodes) {
 		int m = (noOfNodes * (noOfNodes - 1)) / 2;
 		long seed = 1;
@@ -67,9 +101,8 @@ public class GraphGenerator {
 		double weight[] = null;
 		weight = new double[m + 1];
 
-		int k = GraphGenerator.randomGraph(noOfNodes, m, seed, simple,
-				directed, acyclic, weighted, minweight, maxweight, nodei,
-				nodej, weight);
+		int k = GraphGenerator.randomGraph(noOfNodes, m, seed, simple, directed, acyclic, weighted, minweight,
+				maxweight, nodei, nodej, weight);
 		if (k != 0)
 			System.out.println("Invalid input data, error code = " + k);
 		else {
@@ -86,6 +119,15 @@ public class GraphGenerator {
 
 	}
 
+	/**
+	 * Returns adjacency matrix of random generated directed graph without
+	 * direct loop (if there is an edge from node A to node B, there could not
+	 * be an edge from node B to node A).
+	 *
+	 * @param noOfNodes
+	 *            number of nodes in the graph
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
 	public static double[][] generateGraphNoFeedback(int noOfNodes) {
 		double[][] graph = generateDirectedGraph(noOfNodes);
 		double[][] finalGraph = new double[noOfNodes][noOfNodes];
@@ -103,6 +145,14 @@ public class GraphGenerator {
 		return finalGraph;
 	}
 
+	/**
+	 * Returns adjacency matrix of random generated graph with a chain structure
+	 * (all nodes are connected in a single sequence, from one node to another).
+	 *
+	 * @param noOfNodes
+	 *            number of nodes in the graph
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
 	public static double[][] generateChain(int noOfNodes) {
 		double[][] graph = new double[noOfNodes][noOfNodes];
 
@@ -125,6 +175,14 @@ public class GraphGenerator {
 		return graph;
 	}
 
+	/**
+	 * Returns adjacency matrix of random generated graph with a binary tree
+	 * structure (each node could have at most two children).
+	 *
+	 * @param noOfNodes
+	 *            number of nodes in the graph
+	 * @return the resulting matrix as two dimensional array of double values
+	 */
 	public static double[][] generateBinaryTree(int noOfNodes) {
 		double[][] matrix = new double[noOfNodes][noOfNodes];
 		Random r = new Random();
@@ -136,8 +194,7 @@ public class GraphGenerator {
 		return matrix;
 	}
 
-	public static void generateNode(int root, List<Integer> nodes, int total,
-			double[][] matrix) {
+	private static void generateNode(int root, List<Integer> nodes, int total, double[][] matrix) {
 		Random r = new Random();
 		int left = r.nextInt(total);
 		int rigth = r.nextInt(total);
@@ -163,39 +220,8 @@ public class GraphGenerator {
 		}
 	}
 
-	public static double[][] generateGraphByType(int noOfNodes, String type,
-			double probability) {
-		double[][] graph = null;
-		switch (type) {
-		case "DirectedGraph":
-			graph = GraphGenerator.generateDirectedGraph(noOfNodes);
-			break;
-		case "DirectedAcyclicGraph":
-			graph = GraphGenerator.generateDirectedAcyclicGraph(noOfNodes);
-			break;
-		case "DirectedGraphWithoutDirectFeedback":
-			graph = GraphGenerator.generateGraphNoFeedback(noOfNodes);
-			break;
-		case "DirectedGraphWithEdgeProbability":
-			graph = GraphGenerator.generateDirectedGraphWithEdgeProbability(
-					noOfNodes, probability);
-			break;
-		case "Chain":
-			graph = GraphGenerator.generateChain(noOfNodes);
-			break;
-		case "BinaryTree":
-			graph = GraphGenerator.generateBinaryTree(noOfNodes);
-			break;
-		default:
-			graph = null;
-			break;
-		}
-		return graph;
-	}
-
-	public static int randomGraph(int n, int m, long seed, boolean simple,
-			boolean directed, boolean acyclic, boolean weighted, int minweight,
-			int maxweight, int nodei[], int nodej[], double weight[]) {
+	private static int randomGraph(int n, int m, long seed, boolean simple, boolean directed, boolean acyclic,
+			boolean weighted, int minweight, int maxweight, int nodei[], int nodej[], double weight[]) {
 
 		int maxedges, nodea, nodeb, numedges, temp;
 		int dagpermute[] = new int[n + 1];
@@ -258,18 +284,6 @@ public class GraphGenerator {
 			k = perm[i];
 			perm[i] = perm[j];
 			perm[j] = k;
-		}
-	}
-
-	public static void showMatrix(double[][] s) {
-		DecimalFormat df = new DecimalFormat("#.##");
-		for (int i = 0; i < s.length; i++) {
-			double[] s1 = s[i];
-			System.out.print((i + 1) + "\t");
-			for (int j = 0; j < s1.length; j++) {
-				System.out.print(df.format(s[i][j]) + "\t");
-			}
-			System.out.println();
 		}
 	}
 
