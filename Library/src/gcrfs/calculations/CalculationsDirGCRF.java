@@ -1,4 +1,4 @@
-package calculations;
+package gcrfs.calculations;
 
 public class CalculationsDirGCRF extends CalculationsGCRF implements Calculations {
 

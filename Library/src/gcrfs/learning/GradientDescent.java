@@ -1,7 +1,8 @@
-package learning;
+package gcrfs.learning;
 
 import javax.swing.JProgressBar;
-import calculations.Calculations;
+
+import gcrfs.calculations.Calculations;
 
 public class GradientDescent implements LearningAlgorithm {
 	private double alpha;

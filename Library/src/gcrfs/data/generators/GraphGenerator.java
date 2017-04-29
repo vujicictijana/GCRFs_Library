@@ -1,4 +1,4 @@
-package data.generators;
+package gcrfs.data.generators;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

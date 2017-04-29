@@ -1,4 +1,4 @@
-package calculations;
+package gcrfs.calculations;
 
 import org.ojalgo.matrix.BasicMatrix;
 import org.ojalgo.matrix.PrimitiveMatrix;

@@ -1,4 +1,4 @@
-package data.datasets;
+package gcrfs.data.datasets;
 
 public class Dataset {
 

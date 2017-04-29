@@ -1,4 +1,4 @@
-package calculations;
+package gcrfs.calculations;
 
 public interface Calculations {
 	/**

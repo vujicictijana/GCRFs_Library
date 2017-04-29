@@ -1,9 +1,9 @@
-package algorithms;
+package gcrfs.algorithms;
 
-import calculations.BasicCalcs;
-import calculations.Calculations;
-import data.datasets.Dataset;
-import learning.LearningAlgorithm;
+import gcrfs.calculations.BasicCalcs;
+import gcrfs.calculations.Calculations;
+import gcrfs.data.datasets.Dataset;
+import gcrfs.learning.LearningAlgorithm;
 
 public class Basic implements Algorithm{
 	private double alpha;

@@ -1,13 +1,13 @@
-package algorithms;
+package gcrfs.algorithms;
 
-import calculations.BasicCalcs;
-import calculations.Calculations;
-import calculations.CalculationsGCRF;
-import data.datasets.Dataset;
-import learning.GradientDescent;
-import learning.Parameters;
+import gcrfs.calculations.BasicCalcs;
+import gcrfs.calculations.Calculations;
+import gcrfs.calculations.CalculationsDirGCRF;
+import gcrfs.data.datasets.Dataset;
+import gcrfs.learning.GradientDescent;
+import gcrfs.learning.Parameters;
 
-public class GCRF implements Algorithm {
+public class DirGCRF implements Algorithm {
 
 	private double alpha;
 	private double beta;
@@ -17,13 +17,13 @@ public class GCRF implements Algorithm {
 
 	/**
 	 * Class constructor specifying parameters for Gradient descent learning
-	 * algorithm and data for GCRF.
+	 * algorithm and data for DirGCRF.
 	 * 
 	 */
-	public GCRF(Parameters parameters, Dataset data) {
+	public DirGCRF(Parameters parameters, Dataset data) {
 		super();
 		this.expectedY = data.getY();
-		this.calcs = new CalculationsGCRF(data.getS(), data.getR());
+		this.calcs = new CalculationsDirGCRF(data.getS(), data.getR());
 		this.learning = new GradientDescent(parameters, calcs, expectedY, false, null);
 		double[] params = learning.learn();
 		this.alpha = params[0];

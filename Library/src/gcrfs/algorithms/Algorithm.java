@@ -1,4 +1,4 @@
-package algorithms;
+package gcrfs.algorithms;
 
 public interface Algorithm {
 	/**

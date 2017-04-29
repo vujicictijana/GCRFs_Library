@@ -1,4 +1,4 @@
-package learning;
+package gcrfs.learning;
 
 public class Parameters {
 
