@@ -13,15 +13,15 @@ public class GradientDescent implements LearningAlgorithm {
 	boolean showProgress;
 	JProgressBar progress;
 
-	public GradientDescent(double alpha, double beta, double lr, Calculations calcs, double[] y, int maxIter,
-			boolean showProgress, JProgressBar progress) {
+	public GradientDescent(Parameters parameters, Calculations calcs, double[] y, boolean showProgress,
+			JProgressBar progress) {
 		super();
-		this.alpha = alpha;
-		this.beta = beta;
-		this.lr = lr;
+		this.alpha = parameters.getFirstAlpha();
+		this.beta = parameters.getFirstBeta();
+		this.lr = parameters.getLearningRate();
+		this.maxIter = parameters.getMaxIterations();
 		this.calcs = calcs;
 		this.y = y;
-		this.maxIter = maxIter;
 		this.showProgress = showProgress;
 		this.progress = progress;
 	}

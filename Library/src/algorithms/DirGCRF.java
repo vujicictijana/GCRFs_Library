@@ -3,7 +3,9 @@ package algorithms;
 import calculations.BasicCalcs;
 import calculations.Calculations;
 import calculations.CalculationsDirGCRF;
+import data.datasets.Dataset;
 import learning.GradientDescent;
+import learning.Parameters;
 
 public class DirGCRF implements Algorithm {
 
@@ -11,16 +13,21 @@ public class DirGCRF implements Algorithm {
 	private double beta;
 	private double[] expectedY;
 	private Calculations calcs;
-	private GradientDescent learning; 
+	private GradientDescent learning;
 
-	public DirGCRF(double startAlpha, double startBeta,double[][] s, double[] r, double[] expectedY, int maxIter, double learningRate) {
+	/**
+	 * Class constructor specifying parameters for Gradient descent learning
+	 * algorithm and data for DirGCRF.
+	 * 
+	 */
+	public DirGCRF(Parameters parameters, Dataset data) {
 		super();
-		this.expectedY = expectedY;
-		this.calcs = new CalculationsDirGCRF(s, r);
-		this.learning = new GradientDescent(startAlpha, startBeta, learningRate, calcs, expectedY, maxIter, false, null);
+		this.expectedY = data.getY();
+		this.calcs = new CalculationsDirGCRF(data.getS(), data.getR());
+		this.learning = new GradientDescent(parameters, calcs, expectedY, false, null);
 		double[] params = learning.learn();
-		this.alpha= params[0];
-		this.beta  = params[1];
+		this.alpha = params[0];
+		this.beta = params[1];
 	}
 
 	public double[] predictOutputs() {
