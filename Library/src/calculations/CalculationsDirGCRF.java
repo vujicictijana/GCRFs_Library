@@ -1,18 +1,26 @@
 package calculations;
 
-public class CalculationsDirGCRF implements Calculations{
+public class CalculationsDirGCRF extends CalculationsGCRF implements Calculations {
 
 	private int n;
 	private double[][] s;
 	private double[] r;
 
+	/**
+	 * Class constructor specifying similarity matrix (S) and the outputs of
+	 * unstructured predictor (R).
+	 */
 	public CalculationsDirGCRF(double[][] s, double[] r) {
-		super();
+		super(s, r);
 		this.n = s.length;
-		this.s = s;
-		this.r = r;
 	}
 
+	/**
+	 * Calculates Laplacian matrix according to the equation: L = 1/2 *
+	 * diag(rowSum(matrix) + colSum(matrix)) - 2*matrix
+	 *
+	 * @return the Laplacian matrix as two dimensional array of double values
+	 */
 	public double[][] l() {
 
 		// rowSum(S)
@@ -39,17 +47,16 @@ public class CalculationsDirGCRF implements Calculations{
 		return l;
 	}
 
-	public double[][] alphaI(double alpha) {
-		// Alpha * I (I - identity matrix)
-		double[][] identity = BasicCalcs.identityMatrix(s.length);
-		return BasicCalcs.multiplyMatrixByANumber(identity, alpha);
-	}
-
-	public double[][] betaL(double beta) {
-		// Beta * L
-		double[][] l = l();
-		return BasicCalcs.multiplyMatrixByANumber(l, beta);
-	}
+	/**
+	 * Calculates Q (arbitrary matrix) according to the equation: Q = alpha*I +
+	 * beta*L
+	 *
+	 * @param alpha
+	 *            value of Alpha parameter
+	 * @param beta
+	 *            value of Beta parameter
+	 * @return the resulting Q matrix as two dimensional array of double values
+	 */
 
 	public double[][] q(double alpha, double beta) {
 		// Q = alpha*I + beta*L
@@ -58,34 +65,21 @@ public class CalculationsDirGCRF implements Calculations{
 		return BasicCalcs.matrixPlusMatrix(alphaI, betaL);
 	}
 
-	public double[] b(double alpha) {
-		return BasicCalcs.multiplyVectorByANumber(r, alpha);
-	}
-
-	public double[] mu(double alpha, double beta) {
-		// mu = Q^-1*b
-		double[] mu = new double[n];
-		double[][] qInverse = BasicCalcs.inverse(q(alpha, beta));
-		double[] b = b(alpha);
-		mu = BasicCalcs.multiplyMatrixByAColumnVector(qInverse, b);
-		return mu;
-	}
-
-	public double[] y(double alpha, double beta, double p) {
-		double[][] qInverse = BasicCalcs.inverse(q(alpha, beta));
-		double[] b = b(alpha);
-		double[] y = BasicCalcs.multiplyMatrixByAColumnVector(qInverse, b);
-		double[] finalY = new double[y.length];
-		for (int i = 0; i < y.length; i++) {
-			finalY[i] = y[i] + Math.random() * p;
-		}
-		return finalY;
-	}
-	
+	/**
+	 * Calculates partial derivative with respect to the Alpha parameter.
+	 * 
+	 * @param alpha
+	 *            value of Alpha parameter
+	 * @param beta
+	 *            value of Beta parameter
+	 * @param y
+	 *            vector of actual y (the output variable) values
+	 * @return the partial derivative as double value
+	 */
 	public double dervativeAlpha(double alpha, double beta, double[] y) {
-		double[] mu =mu(alpha, beta);
+		double[] mu = mu(alpha, beta);
 		double[][] q = q(alpha, beta);
-		double[][] qInverse =BasicCalcs.inverse(q);
+		double[][] qInverse = BasicCalcs.inverse(q);
 		// partial derivative of l with respect to the beta
 		// -1/2 * [ (y-mu)^T * (y-mu) + (R-mu)^T [I+Q^-1Q](mu-y)]
 		// +1/2 * Tr(Q^-1)
@@ -105,16 +99,14 @@ public class CalculationsDirGCRF implements Calculations{
 
 		// res2 = I+Q^-1Q
 		// res2 = I+qInverseQ
-		double[][] iPlusQInverseQ = BasicCalcs.matrixPlusMatrix(
-				BasicCalcs.identityMatrix(q.length), qInverseQ);
+		double[][] iPlusQInverseQ = BasicCalcs.matrixPlusMatrix(BasicCalcs.identityMatrix(q.length), qInverseQ);
 
 		// muMinusY = (mu-y)
 		double[] muMinusY = BasicCalcs.vectorMinusVector(mu, y);
 
 		// second = (R-mu)^T [I+Q^-1Q](mu-y)
 		// second = (R-mu)^T * res1
-		double[] res1 = BasicCalcs.multiplyMatrixByAColumnVector(
-				iPlusQInverseQ, muMinusY);
+		double[] res1 = BasicCalcs.multiplyMatrixByAColumnVector(iPlusQInverseQ, muMinusY);
 		double second = BasicCalcs.multiplyTwoVectors(rMinusMu, res1);
 
 		// result1 = -1/2 * [ (y-mu)^T * (y-mu) + (R-mu)^T [I+Q^-1Q](mu-y)]
@@ -137,25 +129,34 @@ public class CalculationsDirGCRF implements Calculations{
 		return finalResult;
 	}
 
+	/**
+	 * Calculates partial derivative with respect to the Beta parameter.
+	 * 
+	 * @param alpha
+	 *            value of Alpha parameter
+	 * @param beta
+	 *            value of Beta parameter
+	 * @param y
+	 *            vector of actual y (the output variable) values
+	 * @return the partial derivative as double value
+	 */
 	public double dervativeBeta(double alpha, double beta, double[] y) {
 		// partial derivative of l with respect to the beta
 		// -1/2 * [ y^T*L*y - (-Q^-1*L*mu)^T*Q*y - mu^T*L*y +
 		// (-Q^-1*L*mu)^T*Q*mu] +1/2 * Tr(L*Q^-1)
-		double[] mu =mu(alpha, beta);
+		double[] mu = mu(alpha, beta);
 		double[][] q = q(alpha, beta);
-		double[][] qInverse =BasicCalcs.inverse(q);
-		double[][] l  = l();
+		double[][] qInverse = BasicCalcs.inverse(q);
+		double[][] l = l();
 
 		// first = y^T * L * y
-		double first = BasicCalcs.multiplyTwoVectors(y,
-				BasicCalcs.multiplyMatrixByAColumnVector(l, y));
+		double first = BasicCalcs.multiplyTwoVectors(y, BasicCalcs.multiplyMatrixByAColumnVector(l, y));
 
 		// second = (-Q^-1*L*mu)^T*Q*y
 
 		// product1 = Q^-1*L*mu
 		// product1 = qInverse * L * mu
-		double[] product1 = BasicCalcs.multiplyMatrixByAColumnVector(
-				BasicCalcs.multiplyTwoMatrices(qInverse, l), mu);
+		double[] product1 = BasicCalcs.multiplyMatrixByAColumnVector(BasicCalcs.multiplyTwoMatrices(qInverse, l), mu);
 
 		// res1 = - Q^-1*L*mu
 		// res1 = -1 * product1
@@ -169,8 +170,7 @@ public class CalculationsDirGCRF implements Calculations{
 		double second = BasicCalcs.multiplyTwoVectors(res1, res2);
 
 		// third = mu^T*L*y
-		double third = BasicCalcs.multiplyTwoVectors(mu,
-				BasicCalcs.multiplyMatrixByAColumnVector(l, y));
+		double third = BasicCalcs.multiplyTwoVectors(mu, BasicCalcs.multiplyMatrixByAColumnVector(l, y));
 
 		// fourth = (-Q^-1*L*mu)^T*Q*mu
 		// fourth = res1 * Q*mu
@@ -186,10 +186,9 @@ public class CalculationsDirGCRF implements Calculations{
 
 		// trace = Tr(L*Q^-1)
 		// trace = Tr(L * qInverse)
-		
+
 		double[][] matrix = BasicCalcs.multiplyTwoMatrices(l, qInverse);
 		double trace = BasicCalcs.trace(matrix);
-	
 
 		// result2 = 1/2 * Tr(L*Q^-1)
 		// result2 = 1/2 * trace
