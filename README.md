@@ -68,6 +68,8 @@ Dataset dataset = new Dataset(s, r, y);
 
 <h2>Method</h2>
 
+Use class of specific method that integrates learning algorithm and calculation rules:
+
 ```java
 // parameters for learning algorithm
 double alpha = 1;
@@ -76,12 +78,39 @@ double lr = 0.0001;
 int maxIter = 100;
 Parameters p = new Parameters(alpha, beta, maxIter, lr);
 		
-DirGCRF g1 = new DirGCRF(p, dataset);
+DirGCRF method = new DirGCRF(p, dataset);
 		
-double[] predictedOutputs = g1.predictOutputs();
+double[] predictedOutputs = method.predictOutputs();
 for (int i = 0; i < predictedOutputs.length; i++) {
 	System.out.println(predictedOutputs[i]);
 }
 		
-System.out.println("R^2: " + g1.rSquared());
+System.out.println("R^2: " + method.rSquared());
+```
+
+Use Basic class and specify learning algorithm and calculation rules:
+
+
+```java
+// parameters for learning algorithm
+double alpha = 1;
+double beta = 1;
+double lr = 0.0001;
+int maxIter = 100;
+Parameters p = new Parameters(alpha, beta, maxIter, lr);
+		
+// calculation rules
+CalculationsDirGCRF c = new CalculationsDirGCRF(s, r);
+		
+// learning algorithm
+GradientDescent g = new GradientDescent(p, c, y, false, null);
+		
+Basic method = new Basic(g, c, dataset);
+		
+double[] predictedOutputs = method.predictOutputs();
+for (int i = 0; i < predictedOutputs.length; i++) {
+	System.out.println(predictedOutputs[i]);
+}
+		
+System.out.println("R^2: " + method.rSquared());
 ```
