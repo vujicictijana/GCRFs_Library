@@ -39,8 +39,19 @@ double[] y = ArrayReader.readArray("data/y.txt");
 Dataset d = new Dataset(s, r, y);
 ```
 
-Or generate dataset:
-```double[][] s = GraphGenerator.generateDirectedGraph(200);
+Required format for .txt file with similarity matrix:
+- Format: from node, to node, weight
+- Each edge should be in a separate line.
+- Nodes are represented by ordinal numbers (numbers, from 1 to the number of nodes)
+
+Required format for .txt files with outputs of unstructured predictor and expected outputs:
+- Each output should be in a separate line.
+- Output should be number.
+- Order of outputs should be consistent with ordinal numbers of nodes in the file with similarity matrix
+
+Also, you can generate synthetic dataset:
+```java
+double[][] s = GraphGenerator.generateDirectedGraph(200);
 double[] r = ArrayGenerator.generateArray(200, 5);
 CalculationsDirGCRF c = new CalculationsDirGCRF(s, r);
 double[] y = c.y(1, 2, 0.05);
