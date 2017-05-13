@@ -25,6 +25,11 @@ See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/
 Quickstart tutorial
 =====================
 
+Required data:
+- s - similarity matrix (double[][])
+- r - outputs of unstructured predictor (double[])
+- y - expected outputs (double[])
+   
 Read dataset from .txt files:
 
 ```double[][] s = GraphReader.readGraph("data/s.txt", y.length);
