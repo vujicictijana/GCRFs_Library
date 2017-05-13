@@ -9,7 +9,7 @@ Library supports two GCRF methods:
 Use
 =====================
 
-Download jar file <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar?raw=true">gcrfs.jar</a> and provide a reference to GCRFs Library jar file in your project.
+Download <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar?raw=true">gcrfs.jar</a> and provide a reference to GCRFs Library jar file in your project.
 
 Also, provide references to following jars:
 - ojalgo-40.0.0.jar
