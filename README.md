@@ -20,5 +20,7 @@ Also, provide references to following jars:
 In Eclipse: right click on the project, then Build Path > Configure Build Path > Add JARs or Add External JARs, and choose jars
 In NetBeans: right click on the project, then Properties > Libraries > Add JAR/Folder, and choose jars
 
+<a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a>
+
 Quickstart tutorial
 =====================
