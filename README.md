@@ -25,14 +25,14 @@ See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/
 Quickstart tutorial
 =====================
 
-<h3>Dataset </h3>
+<h2>Dataset </h2>
 
 Required data:
 - s - similarity matrix (double[][])
 - r - outputs of unstructured predictor (double[])
 - y - expected outputs (double[])
    
-<b> Dataset from .txt files</b>
+<b> Dataset from .txt files: </b>
 
 ```java
 double[][] s = GraphReader.readGraph("data/s.txt", y.length);
