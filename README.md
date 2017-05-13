@@ -32,7 +32,7 @@ Required data:
 - r - outputs of unstructured predictor (double[])
 - y - expected outputs (double[])
    
-Read dataset from .txt files:
+<b> Dataset from .txt files</b>
 
 ```java
 double[][] s = GraphReader.readGraph("data/s.txt", y.length);
@@ -51,7 +51,8 @@ Required format for .txt files with outputs of unstructured predictor and expect
 - Output should be number.
 - Order of outputs should be consistent with ordinal numbers of nodes in the file with similarity matrix.
 
-Also, you can generate synthetic dataset:
+<b> Random generated dataset: </b>
+
 ```java
 double[][] s = GraphGenerator.generateDirectedGraph(200);
 double[] r = ArrayGenerator.generateArray(200, 5);
