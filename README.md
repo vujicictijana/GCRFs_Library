@@ -12,7 +12,10 @@ Use
 Download jar file <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar?raw=true">gcrfs.jar</a> and add it to project build path.
 
 Add following jars to project build path:
-- <a href="https://central.maven.org/maven2/org/ujmp/ujmp-core/0.3.0/ujmp-core-0.3.0.jar">ujmp-core-0.3.0.jar</a>
+- ojalgo-40.0.0.jar
+- ojalgo-biz-40.0.0.jar
+- ojalgo-ext-40.0.0.jar
+- ujmp-core-0.3.0.jar
 
 Quickstart tutorial
 =====================
