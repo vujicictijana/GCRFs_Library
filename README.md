@@ -56,6 +56,11 @@ Required format for .txt files with outputs of unstructured predictor and expect
 ```java
 double[][] s = GraphGenerator.generateDirectedGraph(200);
 double[] r = ArrayGenerator.generateArray(200, 5);
+```
+
+The generated S and R should be used to calculate the actual value of output y for each node, in accordance to the method calculation rules, so y method from specific Calculations class should be used:
+
+```java
 CalculationsDirGCRF c = new CalculationsDirGCRF(s, r);
 double[] y = c.y(1, 2, 0.05);
 Dataset d = new Dataset(s, r, y);
