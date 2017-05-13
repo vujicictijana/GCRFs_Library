@@ -32,10 +32,11 @@ Required data:
    
 Read dataset from .txt files:
 
-```<font color="blue">double[][] s = GraphReader.readGraph("data/s.txt", y.length);
+```java
+double[][] s = GraphReader.readGraph("data/s.txt", y.length);
 double[] r = ArrayReader.readArray("data/r.txt");
 double[] y = ArrayReader.readArray("data/y.txt");
-Dataset d = new Dataset(s, r, y);</font>
+Dataset d = new Dataset(s, r, y);
 ```
 
 Or generate dataset:
