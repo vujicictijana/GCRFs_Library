@@ -38,7 +38,7 @@ Required data:
 double[][] s = GraphReader.readGraph("data/s.txt", y.length);
 double[] r = ArrayReader.readArray("data/r.txt");
 double[] y = ArrayReader.readArray("data/y.txt");
-Dataset d = new Dataset(s, r, y);
+Dataset dataset = new Dataset(s, r, y);
 ```
 
 Required format for .txt file with similarity matrix:
@@ -63,5 +63,25 @@ The generated S and R should be used to calculate the actual value of output y f
 ```java
 CalculationsDirGCRF c = new CalculationsDirGCRF(s, r);
 double[] y = c.y(1, 2, 0.05);
-Dataset d = new Dataset(s, r, y);
+Dataset dataset = new Dataset(s, r, y);
+```
+
+<h2>Method</h2>
+
+```java
+// parameters for learning algorithm
+double alpha = 1;
+double beta = 1;
+double lr = 0.0001;
+int maxIter = 100;
+Parameters p = new Parameters(alpha, beta, maxIter, lr);
+		
+DirGCRF g1 = new DirGCRF(p, dataset);
+		
+double[] predictedOutputs = g1.predictOutputs();
+for (int i = 0; i < predictedOutputs.length; i++) {
+	System.out.println(predictedOutputs[i]);
+}
+		
+System.out.println("R^2: " + g1.rSquared());
 ```
