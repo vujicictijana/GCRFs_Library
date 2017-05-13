@@ -25,10 +25,18 @@ See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/
 Quickstart tutorial
 =====================
 
-Read dataset:
+Read dataset from .txt files:
 
-```double[] y = ArrayReader.readArray("data/y.txt");
+```double[][] s = GraphReader.readGraph("data/s.txt", y.length);
 double[] r = ArrayReader.readArray("data/r.txt");
-double[][] s = GraphReader.readGraph("data/s.txt", y.length);
+double[] y = ArrayReader.readArray("data/y.txt");
+Dataset d = new Dataset(s, r, y);
+```
+
+Or generate dataset:
+```double[][] s = GraphGenerator.generateDirectedGraph(200);
+double[] r = ArrayGenerator.generateArray(200, 5);
+CalculationsDirGCRF c = new CalculationsDirGCRF(s, r);
+double[] y = c.y(1, 2, 0.05);
 Dataset d = new Dataset(s, r, y);
 ```
