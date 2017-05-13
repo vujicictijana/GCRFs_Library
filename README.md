@@ -25,7 +25,7 @@ See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/
 Quickstart tutorial
 =====================
 
-<h1>Dataset </h1>
+<h3>Dataset </h3>
 
 Required data:
 - s - similarity matrix (double[][])
