@@ -25,6 +25,8 @@ See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/
 Quickstart tutorial
 =====================
 
+<h1>Dataset </h1>
+
 Required data:
 - s - similarity matrix (double[][])
 - r - outputs of unstructured predictor (double[])
@@ -42,12 +44,12 @@ Dataset d = new Dataset(s, r, y);
 Required format for .txt file with similarity matrix:
 - Format: from node, to node, weight
 - Each edge should be in a separate line.
-- Nodes are represented by ordinal numbers (numbers, from 1 to the number of nodes)
+- Nodes are represented by ordinal numbers (numbers, from 1 to the number of nodes).
 
 Required format for .txt files with outputs of unstructured predictor and expected outputs:
 - Each output should be in a separate line.
 - Output should be number.
-- Order of outputs should be consistent with ordinal numbers of nodes in the file with similarity matrix
+- Order of outputs should be consistent with ordinal numbers of nodes in the file with similarity matrix.
 
 Also, you can generate synthetic dataset:
 ```java
