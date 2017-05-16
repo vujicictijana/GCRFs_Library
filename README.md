@@ -35,9 +35,9 @@ Required data:
 <b> Dataset from .txt files: </b>
 
 ```java
-double[][] s = GraphReader.readGraph("data/s.txt", y.length);
 double[] r = ArrayReader.readArray("data/r.txt");
 double[] y = ArrayReader.readArray("data/y.txt");
+double[][] s = GraphReader.readGraph("data/s.txt", y.length);
 Dataset dataset = new Dataset(s, r, y);
 ```
 
