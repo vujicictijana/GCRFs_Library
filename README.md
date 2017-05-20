@@ -13,8 +13,6 @@ Download <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar
 
 Also, provide references to following jars:
 - ojalgo-40.0.0.jar
-- ojalgo-biz-40.0.0.jar
-- ojalgo-ext-40.0.0.jar
 - ujmp-core-0.3.0.jar
 
 In Eclipse: right click on the project, then Build Path > Configure Build Path > Add JARs or Add External JARs, and choose jars
