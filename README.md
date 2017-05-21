@@ -86,7 +86,21 @@ for (int i = 0; i < predictedOutputs.length; i++) {
 System.out.println("R^2 Train: " + method.rSquared());
 ```
 
-Use Basic class and specify learning algorithm and calculation rules:
+The new method is trained and it should be tested:
+
+```java
+double[] yTest = ArrayReader.readArray("data/yTest.txt");
+double[] rTest = ArrayReader.readArray("data/rTest.txt");
+double[][] sTest = GraphReader.readGraph("data/sTest.txt", y.length);
+
+double[] predictedOutputsTest = g1.predictOutputsForTest(sTest, rTest);
+for (int i = 0; i < predictedOutputsTest.length; i++) {
+	System.out.println(predictedOutputsTest[i]);
+}
+System.out.println("R^2 Test: " + g1.rSquaredForTest(predictedOutputsTest, yTest));
+```
+
+Another way is to Use Basic class and specify learning algorithm and calculation rules:
 
 
 ```java
