@@ -83,7 +83,7 @@ for (int i = 0; i < predictedOutputs.length; i++) {
 	System.out.println(predictedOutputs[i]);
 }
 		
-System.out.println("R^2: " + method.rSquared());
+System.out.println("R^2 Train: " + method.rSquared());
 ```
 
 Use Basic class and specify learning algorithm and calculation rules:
@@ -110,5 +110,5 @@ for (int i = 0; i < predictedOutputs.length; i++) {
 	System.out.println(predictedOutputs[i]);
 }
 		
-System.out.println("R^2: " + method.rSquared());
+System.out.println("R^2 Train: " + method.rSquared());
 ```
