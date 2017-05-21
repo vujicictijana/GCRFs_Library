@@ -101,7 +101,7 @@ Parameters p = new Parameters(alpha, beta, maxIter, lr);
 CalculationsDirGCRF c = new CalculationsDirGCRF(s, r);
 		
 // learning algorithm
-GradientDescent g = new GradientDescent(p, c, y, false, null);
+GradientAscent g = new GradientAscent(p, c, y, false, null);
 		
 Basic method = new Basic(g, c, dataset);
 		
