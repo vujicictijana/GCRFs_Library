@@ -6,7 +6,7 @@ import gcrfs.calculations.CalculationsGCRF;
 import gcrfs.data.datasets.Dataset;
 import gcrfs.learning.GradientDescent;
 import gcrfs.learning.Parameters;
-
+\\test
 public class GCRF implements Algorithm {
 
 	private double alpha;
