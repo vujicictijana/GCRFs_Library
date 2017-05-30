@@ -1,19 +1,13 @@
 package gcrfs.algorithms;
 
-import gcrfs.calculations.BasicCalcs;
-import gcrfs.calculations.Calculations;
 import gcrfs.calculations.CalculationsDirGCRF;
 import gcrfs.data.datasets.Dataset;
-import gcrfs.learning.GradientDescent;
+import gcrfs.learning.GradientAscent;
 import gcrfs.learning.Parameters;
+//test
+public class DirGCRF extends Basic {
 
-public class DirGCRF implements Algorithm {
-
-	private double alpha;
-	private double beta;
-	private double[] expectedY;
-	private Calculations calcs;
-	private GradientDescent learning;
+	private GradientAscent learning;
 
 	/**
 	 * Class constructor specifying parameters for Gradient descent learning
@@ -24,18 +18,14 @@ public class DirGCRF implements Algorithm {
 		super();
 		this.expectedY = data.getY();
 		this.calcs = new CalculationsDirGCRF(data.getS(), data.getR());
-		this.learning = new GradientDescent(parameters, calcs, expectedY, false, null);
+		this.learning = new GradientAscent(parameters, calcs, expectedY, false, null);
 		double[] params = learning.learn();
 		this.alpha = params[0];
 		this.beta = params[1];
 	}
 
-	public double[] predictOutputs() {
-		return calcs.mu(alpha, beta);
+	public double[] predictOutputsForTest(double[][] testS, double[] testR) {
+		CalculationsDirGCRF calc = new CalculationsDirGCRF(testS,testR);
+		return calc.mu(alpha, beta);
 	}
-
-	public double rSquared() {
-		return BasicCalcs.rSquared(predictOutputs(), expectedY);
-	}
-
 }

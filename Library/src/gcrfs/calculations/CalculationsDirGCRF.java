@@ -2,9 +2,6 @@ package gcrfs.calculations;
 
 public class CalculationsDirGCRF extends CalculationsGCRF implements Calculations {
 
-	private double[][] s;
-	private double[] r;
-
 	/**
 	 * Class constructor specifying similarity matrix (S) and the outputs of
 	 * unstructured predictor (R).
@@ -20,7 +17,6 @@ public class CalculationsDirGCRF extends CalculationsGCRF implements Calculation
 	 * @return the Laplacian matrix as two dimensional array of double values
 	 */
 	public double[][] l() {
-
 		// rowSum(S)
 		double[] rowSum = BasicCalcs.rowSum(s);
 
@@ -57,6 +53,7 @@ public class CalculationsDirGCRF extends CalculationsGCRF implements Calculation
 	 */
 
 	public double[][] q(double alpha, double beta) {
+		System.out.println();
 		// Q = alpha*I + beta*L
 		double[][] alphaI = alphaI(alpha);
 		double[][] betaL = betaL(beta);

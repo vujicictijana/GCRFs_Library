@@ -1,6 +1,7 @@
 package gcrfs.calculations;
 
 public interface Calculations {
+
 	/**
 	 * Calculates Laplacian matrix.
 	 */
@@ -33,7 +34,8 @@ public interface Calculations {
 	public double[] mu(double alpha, double beta);
 
 	/**
-	 * Generates y (the output variable) based on algorithm rules, with some added random noise.
+	 * Generates y (the output variable) based on algorithm rules, with some
+	 * added random noise.
 	 */
 	public double[] y(double alpha, double beta, double p);
 

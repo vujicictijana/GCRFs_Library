@@ -4,7 +4,7 @@ import javax.swing.JProgressBar;
 
 import gcrfs.calculations.Calculations;
 
-public class GradientDescent implements LearningAlgorithm {
+public class GradientAscent implements LearningAlgorithm {
 	private double alpha;
 	private double beta;
 	private double lr;
@@ -21,7 +21,7 @@ public class GradientDescent implements LearningAlgorithm {
 	 * whether progress will be shown in the console (showProgress=true) or in
 	 * the specific JProgressBar (pass JProgressBar object or null).
 	 */
-	public GradientDescent(Parameters parameters, Calculations calcs, double[] y, boolean showProgress,
+	public GradientAscent(Parameters parameters, Calculations calcs, double[] y, boolean showProgress,
 			JProgressBar progress) {
 		super();
 		this.alpha = parameters.getFirstAlpha();

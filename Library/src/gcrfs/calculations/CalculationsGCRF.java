@@ -2,8 +2,8 @@ package gcrfs.calculations;
 
 public class CalculationsGCRF implements Calculations {
 
-	private double[][] s;
-	private double[] r;
+	protected double[][] s;
+	protected double[] r;
 
 	/**
 	 * Class constructor specifying similarity matrix (S) and the outputs of
@@ -114,6 +114,7 @@ public class CalculationsGCRF implements Calculations {
 	 */
 
 	public double[] y(double alpha, double beta, double p) {
+
 		double[] y = mu(alpha, beta);
 		double[] finalY = new double[y.length];
 		for (int i = 0; i < y.length; i++) {
@@ -199,4 +200,7 @@ public class CalculationsGCRF implements Calculations {
 
 		return result1 + result2;
 	}
+
+	
+	
 }

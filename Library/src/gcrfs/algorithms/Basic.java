@@ -2,14 +2,19 @@ package gcrfs.algorithms;
 
 import gcrfs.calculations.BasicCalcs;
 import gcrfs.calculations.Calculations;
+import gcrfs.calculations.CalculationsGCRF;
 import gcrfs.data.datasets.Dataset;
 import gcrfs.learning.LearningAlgorithm;
 
-public class Basic implements Algorithm{
-	private double alpha;
-	private double beta;
-	private double[] expectedY;
-	private Calculations calcs;
+public class Basic implements Algorithm {
+	protected double alpha;
+	protected double beta;
+	protected double[] expectedY;
+	protected Calculations calcs;
+
+	public Basic() {
+		super();
+	}
 
 	/**
 	 * Class constructor specifying learning algorithm (object of class that
@@ -27,11 +32,15 @@ public class Basic implements Algorithm{
 		this.calcs = calcs;
 	}
 
-	public double[] predictOutputs() {
+	public double[] predictOutputsForTrain() {
 		return calcs.mu(alpha, beta);
 	}
 
-	public double rSquared() {
-		return BasicCalcs.rSquared(predictOutputs(), expectedY);
+	public double rSquaredForTrain() {
+		return BasicCalcs.rSquared(predictOutputsForTrain(), expectedY);
+	}
+
+	public double rSquaredForTest(double[] predictedY, double[] expectedY) {
+		return BasicCalcs.rSquared(predictedY, expectedY);
 	}
 }
