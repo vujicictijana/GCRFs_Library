@@ -1,10 +1,9 @@
-package gcrf_tool.methods;
+package gcrfs.algorithms;
 
-
-import gcrf_tool.calculations.BasicCalcs;
-import gcrf_tool.calculations.Calculations;
-import gcrf_tool.data.datasets.Dataset;
-import gcrf_tool.learning.LearningAlgorithm;
+import gcrfs.calculations.BasicCalcs;
+import gcrfs.calculations.Calculations;
+import gcrfs.data.datasets.Dataset;
+import gcrfs.learning.LearningAlgorithm;
 
 public class Basic implements Algorithm {
 	protected double alpha;
@@ -47,4 +46,5 @@ public class Basic implements Algorithm {
 	public double[] getParameters(){
 		return new double[] {alpha, beta};
 	}
+
 }

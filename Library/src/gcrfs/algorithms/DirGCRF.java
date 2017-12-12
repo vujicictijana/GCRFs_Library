@@ -1,12 +1,9 @@
 package gcrfs.algorithms;
 
-
-
-import gcrf_tool.calculations.CalculationsDirGCRF;
-import gcrf_tool.data.datasets.Dataset;
-import gcrf_tool.learning.GradientAscent;
-import gcrf_tool.learning.Parameters;
-
+import gcrfs.calculations.CalculationsDirGCRF;
+import gcrfs.data.datasets.Dataset;
+import gcrfs.learning.GradientAscent;
+import gcrfs.learning.Parameters;
 
 public class DirGCRF extends Basic {
 

@@ -1,9 +1,9 @@
 package gcrfs.algorithms;
 
-import gcrf_tool.calculations.CalculationsGCRF;
-import gcrf_tool.data.datasets.Dataset;
-import gcrf_tool.learning.GradientAscent;
-import gcrf_tool.learning.Parameters;
+import gcrfs.calculations.CalculationsGCRF;
+import gcrfs.data.datasets.Dataset;
+import gcrfs.learning.GradientAscent;
+import gcrfs.learning.Parameters;
 
 public class GCRF extends Basic{
 

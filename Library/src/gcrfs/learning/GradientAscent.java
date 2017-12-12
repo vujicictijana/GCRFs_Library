@@ -2,7 +2,7 @@ package gcrfs.learning;
 
 import javax.swing.JProgressBar;
 
-import gcrf_tool.calculations.Calculations;
+import gcrfs.calculations.Calculations;
 
 public class GradientAscent implements LearningAlgorithm {
 	private double alpha;
