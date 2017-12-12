@@ -2,7 +2,7 @@ package gcrfs.algorithms;
 
 public interface Algorithm {
 	/**
-	 * Returns vector of predicted outputs..
+	 * Returns vector of predicted outputs.
 	 */
 	public double[] predictOutputsForTrain();
 

@@ -1,5 +1,6 @@
 package gcrfs.learning;
 
+
 public interface LearningAlgorithm {
 	
 	/**

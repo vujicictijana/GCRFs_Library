@@ -1,10 +1,10 @@
-package gcrfs.algorithms;
+package gcrf_tool.methods;
 
-import gcrfs.calculations.BasicCalcs;
-import gcrfs.calculations.Calculations;
-import gcrfs.calculations.CalculationsGCRF;
-import gcrfs.data.datasets.Dataset;
-import gcrfs.learning.LearningAlgorithm;
+
+import gcrf_tool.calculations.BasicCalcs;
+import gcrf_tool.calculations.Calculations;
+import gcrf_tool.data.datasets.Dataset;
+import gcrf_tool.learning.LearningAlgorithm;
 
 public class Basic implements Algorithm {
 	protected double alpha;
@@ -32,15 +32,19 @@ public class Basic implements Algorithm {
 		this.calcs = calcs;
 	}
 
-	public double[] predictOutputsForTrain() {
+	public double[] predictOutputs() {
 		return calcs.mu(alpha, beta);
 	}
 
-	public double rSquaredForTrain() {
-		return BasicCalcs.rSquared(predictOutputsForTrain(), expectedY);
+	public double rSquared() {
+		return BasicCalcs.rSquared(predictOutputs(), expectedY);
 	}
 
 	public double rSquaredForTest(double[] predictedY, double[] expectedY) {
 		return BasicCalcs.rSquared(predictedY, expectedY);
+	}
+	
+	public double[] getParameters(){
+		return new double[] {alpha, beta};
 	}
 }
