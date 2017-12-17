@@ -11,9 +11,8 @@ Use
 
 Download <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar?raw=true">gcrfs.jar</a> and provide a reference to GCRFs Library jar file in your project.
 
-Also, provide references to following jars:
+Also, provide references to following jar:
 - ojalgo-40.0.0.jar
-- ujmp-core-0.3.0.jar
 
 In Eclipse: right click on the project, then Build Path > Configure Build Path > Add JARs or Add External JARs, and choose jars
 In NetBeans: right click on the project, then Properties > Libraries > Add JAR/Folder, and choose jars
