@@ -12,7 +12,7 @@ Use
 Download <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar?raw=true">gcrfs.jar</a> and provide a reference to GCRFs Library jar file in your project.
 
 Also, provide references to following jar:
-- ojalgo-40.0.0.jar
+- <a href="https://github.com/vujicictijana/GCRFs_Library/blob/master/Library/resources/ojalgo-40.0.0.jar?raw=true">ojalgo-40.0.0.jar</a> 
 
 In Eclipse: right click on the project, then Build Path > Configure Build Path > Add JARs or Add External JARs, and choose jars
 In NetBeans: right click on the project, then Properties > Libraries > Add JAR/Folder, and choose jars
