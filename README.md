@@ -4,7 +4,7 @@ Java library for Gaussian Conditional Random Fields (GCRF) supports training and
 
 <ul>
     <li> <a href="#m"> Methods</a></li>
-    <li> <a href="#i"> Use</a></li>
+    <li> <a href="#u"> Use</a></li>
     <li> <a href="#q"> Quickstart tutorial</a></li>
     <li> <a href="#e"> How to extend?</a></li>
 </ul>
