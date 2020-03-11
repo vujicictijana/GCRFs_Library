@@ -125,3 +125,14 @@ for (int i = 0; i < predictedOutputs.length; i++) {
 		
 System.out.println("R^2 Train: " + method.rSquared());
 ```
+How to extend?
+=====================
+
+Library can be easily extended with new GCRF based methods.
+
+Difference between various GCRF methods is reflected in the calculation rules, so first step is to
+extend the CalculationsGCRF class and to override methods that implement specific calculations.
+
+Second step is to pass object of the new class for calculations to the Basic class, or to override it.
+
+Also, it is possible add new learning algorithm by implementing LearningRule interface.
