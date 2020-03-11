@@ -148,7 +148,7 @@ GCRF based methods.
 
 Full list of packages, classes and methods can be found in GCRFs Library <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a>.
 
-<img src="/vujicictijana/GCRFs_Library/raw/master/diagram" alt="ORCA logo" style="max-width:100%;">
+<img src="/vujicictijana/GCRFs_Library/raw/master/diagram.PNG" alt="diagram" style="max-width:100%;">
 
 
 <a id="e" class="anchor" aria-hidden="true" href="#e"></a>
