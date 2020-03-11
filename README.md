@@ -6,6 +6,15 @@ Library supports two GCRF methods:
 - Standard GCRF (GCRF) - structured regression model that incorporates the outputs of unstructured predictors (based on the given attributes values) and the correlation between output variables in order to achieve a higher prediction accuracy
 - Directed GCRF (DirGCRF) -  method extends the GCRF method by considering asymmetric similarity
 
+
+<ul>
+    <li> <a href="#i">Use</a></li>
+    <li> <a href="#q>Quickstart tutorial</a></li>
+    <li> <a href="#e">How to extend?</a></li>
+</ul>
+
+<a id="u" class="anchor" aria-hidden="true" href="#u"></a>
+
 Use
 =====================
 
@@ -19,6 +28,7 @@ In NetBeans: right click on the project, then Properties > Libraries > Add JAR/F
 
 See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a> for more.
 
+<a id="q" class="anchor" aria-hidden="true" href="#q"></a>
 Quickstart tutorial
 =====================
 
@@ -125,6 +135,8 @@ for (int i = 0; i < predictedOutputs.length; i++) {
 		
 System.out.println("R^2 Train: " + method.rSquared());
 ```
+
+<a id="e" class="anchor" aria-hidden="true" href="#e"></a>
 How to extend?
 =====================
 
@@ -136,3 +148,5 @@ extend the CalculationsGCRF class and to override methods that implement specifi
 Second step is to pass object of the new class for calculations to the Basic class, or to override it.
 
 Also, it is possible add new learning algorithm by implementing LearningRule interface.
+
+Full list of packages, classes and methods can be found in GCRFs Library <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a>.
