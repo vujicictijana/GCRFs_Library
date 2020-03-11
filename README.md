@@ -2,16 +2,19 @@ GCRFs Library
 =====================
 Java library for Gaussian Conditional Random Fields (GCRF) supports training and testing of GCRF methods on random generated datasets and real datasets.
 
-Library supports two GCRF methods:
-- Standard GCRF (GCRF) - structured regression model that incorporates the outputs of unstructured predictors (based on the given attributes values) and the correlation between output variables in order to achieve a higher prediction accuracy
-- Directed GCRF (DirGCRF) -  method extends the GCRF method by considering asymmetric similarity
-
-
 <ul>
+    <li> <a href="#m">Methods</a></li>
     <li> <a href="#i">Use</a></li>
     <li> <a href="#q>Quickstart tutorial</a></li>
     <li> <a href="#e">How to extend?</a></li>
 </ul>
+	    
+<a id="m" class="anchor" aria-hidden="true" href="#m"></a>
+Methods
+=====================
+Library supports two GCRF methods:
+- Standard GCRF (GCRF) - structured regression model that incorporates the outputs of unstructured predictors (based on the given attributes values) and the correlation between output variables in order to achieve a higher prediction accuracy
+- Directed GCRF (DirGCRF) -  method extends the GCRF method by considering asymmetric similarity
 
 <a id="u" class="anchor" aria-hidden="true" href="#u"></a>
 
