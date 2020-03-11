@@ -6,6 +6,7 @@ Java library for Gaussian Conditional Random Fields (GCRF) supports training and
     <li> <a href="#m"> Methods</a></li>
     <li> <a href="#u"> Use</a></li>
     <li> <a href="#q"> Quickstart tutorial</a></li>
+   <li> <a href="#c"> Class diagram</a></li>
     <li> <a href="#e"> How to extend?</a></li>
 </ul>
 	    
@@ -139,6 +140,17 @@ for (int i = 0; i < predictedOutputs.length; i++) {
 System.out.println("R^2 Train: " + method.rSquared());
 ```
 
+<a id="c" class="anchor" aria-hidden="true" href="#c"></a>
+Class diagram
+=====================
+Basic classes presented at the class diagram provide a general structure and logic components that are common for
+GCRF based methods.
+
+Full list of packages, classes and methods can be found in GCRFs Library <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a>.
+
+<img src="/vujicictijana/GCRFs_Library/raw/master/diagram" alt="ORCA logo" style="max-width:100%;">
+
+
 <a id="e" class="anchor" aria-hidden="true" href="#e"></a>
 How to extend?
 =====================
@@ -152,4 +164,4 @@ Second step is to pass object of the new class for calculations to the Basic cla
 
 Also, it is possible add new learning algorithm by implementing LearningRule interface.
 
-Full list of packages, classes and methods can be found in GCRFs Library <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a>.
+
