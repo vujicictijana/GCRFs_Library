@@ -3,10 +3,10 @@ GCRFs Library
 Java library for Gaussian Conditional Random Fields (GCRF) supports training and testing of GCRF methods on random generated datasets and real datasets.
 
 <ul>
-    <li> <a href="#m">Methods</a></li>
-    <li> <a href="#i">Use</a></li>
-    <li> <a href="#q>Quickstart tutorial</a></li>
-    <li> <a href="#e">How to extend?</a></li>
+    <li> <a href="#m"> Methods</a></li>
+    <li> <a href="#i"> Use</a></li>
+    <li> <a href="#q"> Quickstart tutorial</a></li>
+    <li> <a href="#e"> How to extend?</a></li>
 </ul>
 	    
 <a id="m" class="anchor" aria-hidden="true" href="#m"></a>
