@@ -22,7 +22,7 @@ Library supports two GCRF methods:
 Use
 =====================
 
-Download <a href="https://github.com/vujicictijana/Library/blob/master/gcrfs.jar?raw=true">gcrfs.jar</a> and provide a reference to GCRFs Library jar file in your project.
+Download gcrfs.jar from http://gcrfs-tool.com/ and provide a reference to GCRFs Library jar file in your project.
 
 Also, provide references to following jar:
 - <a href="https://github.com/vujicictijana/GCRFs_Library/blob/master/Library/resources/ojalgo-40.0.0.jar?raw=true">ojalgo-40.0.0.jar</a> 
