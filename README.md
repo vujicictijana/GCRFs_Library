@@ -30,7 +30,7 @@ Also, provide references to following jar:
 In Eclipse: right click on the project, then Build Path > Configure Build Path > Add JARs or Add External JARs, and choose jars
 In NetBeans: right click on the project, then Properties > Libraries > Add JAR/Folder, and choose jars
 
-See the <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a> for more.
+See the <a href="http://gcrfs-tool.com/api/">GCRFs Library documentation</a> for more.
 
 <a id="q" class="anchor" aria-hidden="true" href="#q"></a>
 Quickstart tutorial
@@ -146,7 +146,7 @@ Class diagram
 Basic classes presented at the class diagram provide a general structure and logic components that are common for
 GCRF based methods.
 
-Full list of packages, classes and methods can be found in GCRFs Library <a href="http://htmlpreview.github.io/?https://github.com/vujicictijana/Library/blob/master/Library/api/index.html">GCRFs Library API documentation</a>.
+Full list of packages, classes and methods can be found in GCRFs Library <a href="http://gcrfs-tool.com/api/">GCRFs Library API documentation</a>.
 
 <img src="/diagram.PNG" alt="diagram" style="max-width:100%;">
 
